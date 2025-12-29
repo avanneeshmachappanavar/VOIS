@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GreaseMonkey</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <img src="logo.png" class="logo" />
+      <h1 class="brand">
+        <span class="white">GREASE</span><span class="orange">MONKEY</span>
+      </h1>
+    </div>
+
+    <h2 class="title">System Access</h2>
+    <p class="subtitle">
+      Authenticate to access the predictive maintenance terminal.
+    </p>
+
+    <!-- ROLE SWITCH -->
+    <div class="role-switch">
+      <button class="role" id="adminBtn">Admin / Manager</button>
+      <button class="role active" id="operatorBtn">Field Operator</button>
+    </div>
+
+    <!-- OPERATOR CARD -->
+    <div class="card" id="operatorCard">
+      <h3>Operator Log</h3>
+      <p>Enter your badge number for data entry.</p>
+
+      <label>Badge Number</label>
+      <input type="text"  id = "operatorUsername" />
+
+      <label>PIN</label>
+      <input type="password"  id = "operatorPassword" />
+      
+      <p class="error-msg" id="operatorError"></p>
+      <button class="primary-btn"  id = "operatorLoginBtn">Access Field Terminal</button>
+    </div>
+
+    <!-- ADMIN CARD -->
+    <div class="card hidden" id="adminCard">
+      <h3>Admin Portal</h3>
+      <p>Enter your credentials to access the command center.</p>
+
+      <label>System ID</label>
+      <input type="text"  id="adminUsername"/>
+
+      <label>Password</label>
+      <input type="password"  id="adminPassword"  />
+
+      <p class="error-msg" id="adminError"></p>
+      <button class="primary-btn"  id="adminLoginBtn">Authenticate</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

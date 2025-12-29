@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0f172a, #1a2487);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 430px;
+  padding: 24px;
+  text-align: center;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.logo {
+  width: 64px;
+}
+
+.brand {
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+.white { color: white; }
+.orange { color: #f5a623; }
+
+/* TEXT */
+.title {
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #aab3d1;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* ROLE SWITCH */
+.role-switch {
+  display: flex;
+  background: #1f2937;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.role {
+  flex: 1;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.role.active {
+  background: #2d3a66;
+  color: white;
+}
+
+/* CARD */
+.card {
+  background: #1f2937;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: left;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+/* INPUTS */
+label {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+input {
+  width: 100%;
+  margin: 6px 0 14px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: #111827;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f5a623;
+}
+
+/* BUTTON */
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2d3a66;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #3b4b84;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-msg {
+  display: none;
+  margin-top: 14px;
+  padding: 14px 18px;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #3b4b84,#3b4b84);
+  border: 1px solid #3b4b84;
+
+  color: #000000;   /* dark maroon red */
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  box-shadow: 0 6px 18px rgba(220, 53, 69, 0.15);
+
+  animation: slideFade 0.25s ease-out;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
