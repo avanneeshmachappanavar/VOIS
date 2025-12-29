@@ -2,6 +2,12 @@
 
 A predictive maintenance system for a Bus Fleet .
 
+## System Architecture
+
+The system follows a client–server architecture with role-based access control.
+
+![System Architecture](docs/system_architecture.jpg)
+
 ## Features
 - FastAPI backend
 - MySQL database
