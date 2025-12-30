@@ -90,6 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("role", data.role);
 
     alert(`Login successful as ${data.role}`);
+    if (data.role === "operator") {
+    window.location.href = "operator.html";
+  }
   })
   .catch(() => {
     showError(expectedRole, "Server error. Try again.");

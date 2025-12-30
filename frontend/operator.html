@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GreaseMonkey – Operator Log</title>
+  <link rel="stylesheet" href="operator.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand sidebar-brand">
+  
+</div>
+      <button class="close-btn" onclick="toggleSidebar()"></button>
+    </div>
+
+    <ul class="menu">
+      <li class="active">
+        🧾 <span>Input Log</span>
+      </li>
+      <li onclick="goToHistory()">
+        📊 <span>My History</span>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="user">
+        <div class="avatar">👷</div>
+        <div>
+          <div class="name">Operator 042</div>
+          <div class="zone">Zone B</div>
+        </div>
+      </div>
+
+      <button class="logout-btn" onclick="logout()">⎋ Sign Out</button>
+    </div>
+  </div>
+
+  <!-- 🔹 BACKDROP (NEW) -->
+  <div class="backdrop" id="backdrop" onclick="toggleSidebar()"></div>
+
+  <!-- TOP BAR -->
+  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="card">
+      <h2>Operator Log</h2>
+      <p class="card-subtitle">Enter inspection and maintenance data.</p>
+
+      <label>Bus ID</label>
+      <input type="number" id="bus_id" placeholder="e.g. 164" />
+
+      <div class="row">
+        <div>
+          <label>Odometer (km)</label>
+          <input type="number" id="mileage" placeholder="124500" />
+        </div>
+        <div>
+          <label>Coolant Temp (°C)</label>
+          <input type="number" id="temperature" placeholder="75" />
+        </div>
+      </div>
+
+      <label>Oil Level</label>
+      <select id="oil_level">
+        <option value="">Select level</option>
+        <option value="FULL">FULL</option>
+        <option value="NORMAL">NORMAL</option>
+        <option value="LOW">LOW</option>
+        <option value="CRITICAL">CRITICAL</option>
+      </select>
+
+      <label>Operator Notes</label>
+      <textarea id="remarks" placeholder="Describe any unusual behavior..."></textarea>
+
+      <button class="primary-btn" onclick="submitLog()">Submit Log</button>
+
+      <p id="msg"></p>
+    </div>
+  </div>
+
+  <script src="operator.js"></script>
+</body>
+</html>
