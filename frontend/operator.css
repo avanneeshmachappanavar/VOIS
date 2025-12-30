@@ -331,3 +331,21 @@ textarea:focus {
   opacity: 1;
   pointer-events: auto;
 }
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 8px;
+  border-bottom: 1px solid #374151;
+  text-align: left;
+}
+
+.history-table th {
+  color: #9ca3af;
+}

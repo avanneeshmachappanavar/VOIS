@@ -4,6 +4,7 @@ from FastAPI.database import get_db
 from FastAPI.models import OperatorInput
 from FastAPI.schemas import OperatorInputCreate
 from FastAPI.dependencies import get_current_user
+from typing import List
 
 router = APIRouter(
     prefix="/operator",
@@ -29,3 +30,19 @@ def submit_operator_input(
 
     return {"message": "Data submitted successfully"}
 
+@router.get("/history")
+def get_operator_history(
+    db: Session = Depends(get_db),
+    user: dict = Depends(get_current_user)
+):
+    if user["role"] != "operator":
+        raise HTTPException(status_code=403, detail="Not authorized")
+
+    logs = (
+        db.query(OperatorInput)
+        .order_by(OperatorInput.created_at.desc())
+        .limit(20)
+        .all()
+    )
+
+    return logs
