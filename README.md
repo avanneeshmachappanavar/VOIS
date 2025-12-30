@@ -25,3 +25,4 @@ The system follows a client–server architecture with role-based access control
 
 ## Project Status
 Authentication and role-based routing completed.
+Operator input log page connected to authenticated login.
