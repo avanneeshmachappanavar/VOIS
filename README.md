@@ -22,5 +22,7 @@ A predictive maintenance system for a Bus Fleet .
 - HTML, CSS, JavaScript
 
 ## Project Status
-Authentication and role-based routing completed.
-Operator input log page connected to authenticated login.
+- Authentication and role-based routing completed.
+- Operator Input log page connected to authenticated login.
+- Submited Operator Log History 
+- Admin/Maintenance Dashboard connected to authenticated login.
