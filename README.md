@@ -1,5 +1,5 @@
 <h1>
-  <img src="logo.png" alt="GreaseMonkey logo" width="40" style="vertical-align: middle;"/>
+  <img src="docs/logo.png" alt="GreaseMonkey logo" width="40" style="vertical-align: middle;"/>
   GreaseMonkey
 </h1>
 ---
