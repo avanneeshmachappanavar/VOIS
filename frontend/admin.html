@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GreaseMonkey – Admin</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+      </div>
+    </div>
+
+    <ul class="menu">
+      <li class="active">📊 <span>Dashboard</span></li>
+      <li class="disabled">🚌 <span>Fleet Status</span></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="user">
+        <div class="avatar">🛠️</div>
+        <div>
+          <div class="name">Maintenance Admin</div>
+          <div class="zone">Fleet Control</div>
+        </div>
+      </div>
+
+      <button class="logout-btn" onclick="logout()">⎋ Sign Out</button>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="card">
+      <h2>Maintenance Dashboard</h2>
+      <p class="subtitle">Fleet analytics and predictive insights</p>
+
+      <div class="placeholder">
+        🚧 Dashboard under development  
+        <br />
+        ML-based insights will appear here
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+const backendURL = "http://127.0.0.1:8000"; 
 
+document.addEventListener("DOMContentLoaded", () => {
 
   const adminBtn = document.getElementById("adminBtn");
   const operatorBtn = document.getElementById("operatorBtn");
@@ -20,85 +21,72 @@ document.addEventListener("DOMContentLoaded", () => {
     adminCard.classList.add("hidden");
   };
 
-  const backendURL = "http://127.0.0.1:8000";
-
   const adminLoginBtn = document.getElementById("adminLoginBtn");
   const operatorLoginBtn = document.getElementById("operatorLoginBtn");
 
-  // SAFETY CHECK (IMPORTANT)
-  console.log("adminLoginBtn:", adminLoginBtn);
-  console.log("operatorLoginBtn:", operatorLoginBtn);
-
   if (operatorLoginBtn) {
     operatorLoginBtn.onclick = () => {
-      const username = document.getElementById("operatorUsername").value;
-      const password = document.getElementById("operatorPassword").value;
-      login(username, password , "operator");
+      login(
+        document.getElementById("operatorUsername").value,
+        document.getElementById("operatorPassword").value,
+        "operator"
+      );
     };
   }
 
   if (adminLoginBtn) {
     adminLoginBtn.onclick = () => {
-      const username = document.getElementById("adminUsername").value;
-      const password = document.getElementById("adminPassword").value;
-      login(username, password , "maintenance");
+      login(
+        document.getElementById("adminUsername").value,
+        document.getElementById("adminPassword").value,
+        "maintenance"
+      );
     };
-
-    ["adminUsername", "adminPassword", "operatorUsername", "operatorPassword"]
-  .forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener("input", () => {
-        document.getElementById("adminError").style.display = "none";
-        document.getElementById("operatorError").style.display = "none";
-      });
-    }
-  });
-
   }
 
- function login(username, password, expectedRole) {
-  // Clear old errors
+});
+
+/* ---------------- LOGIN FUNCTION ---------------- */
+function login(username, password, expectedRole) {
   document.getElementById("adminError").style.display = "none";
   document.getElementById("operatorError").style.display = "none";
 
   fetch(`${backendURL}/auth/login`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password })
   })
   .then(res => res.json())
   .then(data => {
+
     if (!data.access_token) {
       showError(expectedRole, "Invalid credentials");
       return;
     }
 
-    // 🚫 ROLE MISMATCH (UX RULE)
-    if (data.role !== expectedRole) {
-      showError(
-        expectedRole,
-        `This account is not allowed to log in as ${expectedRole}`
-      );
-      return;
-    }
-
-  
     localStorage.setItem("token", data.access_token);
-    localStorage.setItem("role", data.role);
 
-    alert(`Login successful as ${data.role}`);
-    if (data.role === "operator") {
-    window.location.href = "operator.html";
-  }
+    const role = data.role.trim();
+    localStorage.setItem("role", role);
+
+   if (role === "maintenance") {
+  window.location.replace("http://127.0.0.1:5500/admin.html");
+  return;
+}
+   if (role === "operator") {
+  window.location.replace("http://127.0.0.1:5500/operator.html");
+  return;
+}
+
+
   })
   .catch(() => {
     showError(expectedRole, "Server error. Try again.");
   });
 }
-//helper function..
+
+/* ---------------- ERROR HELPER ---------------- */
+
 function showError(role, message) {
   const errorEl =
     role === "maintenance"
@@ -109,4 +97,3 @@ function showError(role, message) {
   errorEl.style.display = "block";
 }
 
-});
