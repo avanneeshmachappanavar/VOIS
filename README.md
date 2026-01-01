@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend/assets/logo.png" alt="GreaseMonkey Logo" width="120" />
+  <img src="docs/logo.png" alt="GreaseMonkey Logo" width="120" />
 </p>
 
 <h1 align="center">GreaseMonkey</h1>
