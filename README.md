@@ -1,13 +1,7 @@
-<p align="center">
-  <img src="docs/logo.png" alt="GreaseMonkey Logo" width="120" />
-</p>
-
-<h1 align="center">GreaseMonkey</h1>
-
-<p align="center">
-  A predictive maintenance system for a bus fleet
-</p>
-
+<h1>
+  <img src="logo.png" alt="GreaseMonkey logo" width="40" style="vertical-align: middle;"/>
+  GreaseMonkey
+</h1>
 ---
 
 ## System Architecture
