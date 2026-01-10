@@ -199,3 +199,91 @@ body {
   cursor: pointer;
   z-index: 9999;
 }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stat-box {
+  background: #1f2933;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.label {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.value {
+  font-size: 28px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.value.danger {
+  color: #ef4444;
+}
+
+.value.status {
+  color: #22c55e;
+}
+
+.ml-table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.ml-table th,
+.ml-table td {
+  padding: 12px;
+  border-bottom: 1px solid #374151;
+  text-align: left;
+}
+
+.ml-table th {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.ml-table td {
+  font-size: 15px;
+}
+
+.search-container {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.search-input {
+  width: 260px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  background-color: #1f2937;
+  color: #e5e7eb;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* Placeholder color */
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Hover effect */
+.search-input:hover {
+  border-color: #4b5563;
+}
+
+/* Focus (active typing) */
+.search-input:focus {
+  border-color: #22c55e; /* green accent */
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+  background-color: #111827;
+}

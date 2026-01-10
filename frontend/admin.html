@@ -10,13 +10,11 @@
   <!-- SIDEBAR -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="brand">
-      </div>
+      <div class="brand"></div>
     </div>
 
     <ul class="menu">
       <li class="active">📊 <span>Dashboard</span></li>
-      <li class="disabled">🚌 <span>Fleet Status</span></li>
     </ul>
 
     <div class="sidebar-footer">
@@ -41,11 +39,56 @@
       <h2>Maintenance Dashboard</h2>
       <p class="subtitle">Fleet analytics and predictive insights</p>
 
-      <div class="placeholder">
-        🚧 Dashboard under development  
-        <br />
-        ML-based insights will appear here
+      <!-- DASHBOARD STATS -->
+      <div class="stats">
+        <div class="stat-box">
+          <div class="label">Total Logs</div>
+          <div class="value" id="totalLogs">–</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="label">High Risk Vehicles</div>
+          <div class="value danger" id="highRisk">–</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="label">Next Maintenance (KM)</div>
+          <div class="value" id="nextMaintenance">–</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="label">System Status</div>
+          <div class="value status" id="systemStatus">–</div>
+        </div>
       </div>
+       
+      <!-- SEARCH BAR -->
+    <div class="search-container">
+  <input
+    type="text"
+    id="busSearch"
+    class="search-input"
+    placeholder="🔍 Search by Bus ID..."
+    oninput="filterByBus()"
+  />
+</div>
+
+      <!-- 🔥 NEW SECTION: ML RESULTS TABLE -->
+      <h3 style="margin-top: 30px;">ML Risk Analysis</h3>
+
+      <table class="ml-table">
+        <thead>
+          <tr>
+            <th>Bus ID</th>
+            <th>Failure Probability</th>
+            <th>Risk Level</th>
+          </tr>
+        </thead>
+        <tbody id="mlTable">
+          <!-- Rows inserted dynamically by admin.js -->
+        </tbody>
+      </table>
+
     </div>
   </div>
 

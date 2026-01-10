@@ -1,3 +1,4 @@
+let allOperatorLogs = [];
 
 const inputLogHTML = `
   <h2>Operator Log</h2>
@@ -104,6 +105,15 @@ async function goToHistory() {
   // Render history layout
   card.innerHTML = `
     <h2>My Log History</h2>
+    <div class="search-container">
+  <input
+    type="text"
+    id="busSearch"
+    class="search-input"
+    placeholder="🔍 Search by Bus ID..."
+    oninput="filterByBus()"
+  />
+</div>
     <table class="history-table">
       <thead>
         <tr>
@@ -146,18 +156,9 @@ async function goToHistory() {
       return;
     }
 
-    // Populate rows
-    data.forEach(log => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${log.bus_id}</td>
-        <td>${log.mileage}</td>
-        <td>${log.temperature}°C</td>
-        <td>${log.oil_level}</td>
-        <td>${new Date(log.created_at).toLocaleString()}</td>
-      `;
-      body.appendChild(row);
-    });
+    allOperatorLogs = data;
+    renderHistory(allOperatorLogs);
+
 
   } catch (err) {
     card.innerHTML = `
@@ -180,4 +181,50 @@ function setActiveMenu(id) {
     item.classList.remove("active");
   });
   document.getElementById(id).classList.add("active");
+}
+
+function renderHistory(logs) {
+  const body = document.getElementById("historyBody");
+  body.innerHTML = "";
+
+  if (logs.length === 0) {
+    body.innerHTML = `
+      <tr>
+        <td colspan="5" style="text-align:center; color:#9ca3af;">
+          No logs found
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  logs.forEach(log => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${log.bus_id}</td>
+      <td>${log.mileage}</td>
+      <td>${log.temperature}°C</td>
+      <td>${log.oil_level}</td>
+      <td>${new Date(log.created_at).toLocaleString()}</td>
+    `;
+    body.appendChild(row);
+  });
+}
+
+function filterByBus() {
+  const query = document
+    .getElementById("busSearch")
+    .value
+    .trim();
+
+  if (query === "") {
+    renderHistory(allOperatorLogs);
+    return;
+  }
+
+  const filtered = allOperatorLogs.filter(log =>
+    log.bus_id.toString().includes(query)
+  );
+
+  renderHistory(filtered);
 }
