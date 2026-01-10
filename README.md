@@ -26,6 +26,7 @@
 - SQLAlchemy  
 - JWT  
 - HTML, CSS, JavaScript  
+- Scikit Learn
 
 ---
 
@@ -34,3 +35,6 @@
 - Operator input log page connected to authenticated login  
 - Operator log history implemented  
 - Admin/Maintenance dashboard connected to authenticated login  
+- ML Integration, Bus Search Added 
+- Dashboard Added on Admin side
+
